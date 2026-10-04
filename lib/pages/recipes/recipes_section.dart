@@ -61,11 +61,12 @@ class RecipesSection extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 12, right: 12, left: 12, bottom: 8),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         // Название рецепта
                         Text(
                           recipes[index][0],
-                          style: Theme.of(context).textTheme.titleMedium,
+                          style: Theme.of(context).textTheme.titleSmall,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),

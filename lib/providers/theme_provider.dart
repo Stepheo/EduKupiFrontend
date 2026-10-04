@@ -22,7 +22,7 @@ class ThemeProvider extends ChangeNotifier {
     } else if (theme == 1) {
       _theme = ThemeMode.dark;
     } else {
-      _theme = ThemeMode.light;
+      _theme = ThemeMode.system;
     }
 
     notifyListeners();

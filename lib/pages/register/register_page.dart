@@ -33,7 +33,7 @@ class RegisterPage extends StatelessWidget {
               padding: const EdgeInsets.all(24.0),
               child: Text(
                 "Планируй питание под свои цели, "
-                "выбирай рецепты и сразу собирай список"
+                "выбирай рецепты и сразу собирай список "
                 "продуктов для покупки.",
                 style: Theme.of(context).textTheme.headlineLarge,
                 textAlign: TextAlign.center,
