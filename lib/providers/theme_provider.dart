@@ -10,36 +10,24 @@ class ThemeProvider extends ChangeNotifier {
     initTheme();
   }
 
-  // Читаем сохранённую тему из памяти телефона (0 - светлая, 1 - тёмная)
+  // Читаем сохранённую тему, если ничего нет остается системная
   Future<void> initTheme() async {
     final prefs = await SharedPreferences.getInstance();
 
-    final theme = prefs.getInt('theme');
+    final theme = prefs.getString('theme_mode');
 
-    if (theme == null) {
-      await prefs.setInt('theme', 0);
-      _theme = ThemeMode.light;
-    } else if (theme == 1) {
-      _theme = ThemeMode.dark;
-    } else {
-      _theme = ThemeMode.system;
+    if (theme != null) {
+      _theme = ThemeMode.values.byName(theme);
+      notifyListeners();
     }
-
-    notifyListeners();
   }
 
-  // Переключаем тему и запоминаем выбор
-  Future<void> toggleTheme() async {
-    final prefs = await SharedPreferences.getInstance();
-
-    if (_theme == ThemeMode.light) {
-      _theme = ThemeMode.dark;
-      await prefs.setInt('theme', 1);
-    } else {
-      _theme = ThemeMode.light;
-      await prefs.setInt('theme', 0);
-    }
-
+  // Меняем тему и запоминаем выбор
+  Future<void> setTheme(ThemeMode theme) async {
+    _theme = theme;
     notifyListeners();
+
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('theme_mode', theme.name);
   }
 }
