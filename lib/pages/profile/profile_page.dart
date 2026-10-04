@@ -19,12 +19,28 @@ class ProfilePage extends StatelessWidget {
               Text(
                 'Темная тема',
               ),
-              // Переключатель тёмной темы
-              Switch(value: themeProvider.theme == ThemeMode.dark,
-                onChanged: (_) {
-                  themeProvider.toggleTheme();
-                }
-              ),
+              // Изменение темы
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 16),
+                    child: Text(
+                      'Тема',
+                    ),
+                  ),
+                  DropdownButton(
+                    value: themeProvider.theme,
+                    onChanged: (value) {
+                      themeProvider.setTheme(value!);
+                    },
+                    items: const [
+                      DropdownMenuItem(value: ThemeMode.system, child: Text('Системная')),
+                      DropdownMenuItem(value: ThemeMode.light, child: Text('Светлая')),
+                      DropdownMenuItem(value: ThemeMode.dark, child: Text('Темная')),
+                    ],
+                  ),
+                ],
+              )
             ],
           )
         ],
