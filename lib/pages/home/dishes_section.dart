@@ -6,10 +6,16 @@ class DishesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Пока блюда заглушки, потом брать с сервера
+    final dishes = [
+      ['Завтрак', 'Овсянка с ягодами и орехами', '420'],
+      ['Обед', 'Куриная грудка с киноа и овощами', '520'],
+      ['Ужин', 'Овощной крем-суп с тостами', '310'],
+    ];
+
     return Expanded(
       child: ListView.builder(
-        // Пока показываем 3 блюда-заглушки, потом заменить данными с сервера
-        itemCount: 3,
+        itemCount: dishes.length,
         itemBuilder: (BuildContext context, int index) { 
           return Container(
             margin: EdgeInsets.only(left: 20, right: 20, top: 16),
@@ -47,15 +53,15 @@ class DishesSection extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Завтрак'.toUpperCase(),
+                        dishes[index][0].toUpperCase(),
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                       Text(
-                        'Овсянка с ягодами и орехами asdasdasd',
+                        dishes[index][1],
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(
-                        '420 ккал',
+                        '${dishes[index][2]} ккал',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           fontWeight: FontWeight.normal
                         ),
