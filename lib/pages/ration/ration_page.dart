@@ -1,3 +1,4 @@
+import 'package:edu_kupi/pages/ration/days_section.dart';
 import 'package:edu_kupi/pages/ration/top_section.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,8 @@ class RationPage extends StatelessWidget {
         children: [
           // Заголовок
           const TopSection(),
+          // Дни недели
+          const DaysSection(),
         ],
       ),
     );
