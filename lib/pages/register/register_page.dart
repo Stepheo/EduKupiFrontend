@@ -45,7 +45,7 @@ class RegisterPage extends StatelessWidget {
               child: FilledButton(
                 onPressed: () {
                   // Пока без регистрации: просто считаем пользователя вошедшим
-                  context.read<AuthProvider>().isAuthentificated = true;
+                  context.read<AuthProvider>().isAuthenticated = true;
                   context.go('/');
                 },
                 child: Text(

@@ -48,7 +48,7 @@ final GoRouter _router = GoRouter(
   initialLocation: "/",
   redirect: (context, state) {
     final auth = context.read<AuthProvider>();
-    if (!auth.isAuthentificated) {
+    if (!auth.isAuthenticated) {
       return "/register";
     }
     return null;
